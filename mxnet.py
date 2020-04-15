@@ -272,7 +272,7 @@ class MixnetModel(nn.Module):
         round_filters(stem_size, self._global_params),
         3, 2, padding=1,bias=False, momentum=batch_norm_momentum, eps=epsilon)
 
-    self._blocks = []
+    self._blocks = nn.ModuleList()
     # Builds blocks.
     for block_args in self._blocks_args:
       assert block_args.num_repeat > 0
